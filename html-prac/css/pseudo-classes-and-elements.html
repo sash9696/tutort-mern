@@ -1,0 +1,54 @@
+<!-- 
+
+    pseudo classes (platform state)
+    elements have some states like hover, focus,
+    starts with :
+
+    pseudo elements (like inserting anew element)
+    pseudo elements are different fro pseudo classes
+    ::
+    
+ -->
+
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+     <style>
+         /* when the link is hovered */
+         /* a:hover{
+             outline:  2px dotted black;
+         } */
+ 
+         /*  set alll even paragraphs with these styles */
+         /* p:nth-child(even){
+             background-color: aqua;
+         } */
+ 
+         /* .my-element::before{
+             content: 'Prefix - ';
+         } */
+ 
+         .my-element::selection{
+             background-color: black;
+             color: white;
+         }
+     </style>
+ </head>
+ <body>
+ <!-- 
+     <div>
+         <a>Visit google.com</a>
+         <p>this is para 1</p>
+         <p>this is para 2</p>
+         <p>this is para 3</p>
+         <p>this is para 4</p>
+ 
+     </div> -->
+     <div class="my-element">this is a div</div>
+     <div>this is a div 2</div>
+ 
+ </body>
+ </html>

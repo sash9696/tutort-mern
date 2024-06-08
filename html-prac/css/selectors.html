@@ -1,0 +1,116 @@
+
+<!-- selectors -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=`, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        /* simple selectors
+            universal selector, tag or type selector, class , id 
+        */
+
+        /* p{
+            color: blue;
+        } */
+
+        /* *{
+            color: gray;
+        } */
+/* 
+        .red{
+            color: red;
+        }
+
+        #green{
+            background-color: green;
+        } */
+
+
+        /* attribute selector */
+
+        /* [data-type='primary']{
+            background-color: gray;
+        } */
+
+        /* href that contains 'a'
+        [href*='a']{
+            color: red;
+        } */
+
+         /* href that starts with 'https'
+         [href^='https']{
+            color: red;
+        } */
+
+          /* href that ends with '.pdf' */
+          /* [href$='.pdf']{
+            color: red;
+        } */
+
+
+        /* combination selectors */
+
+        /* div.my-class{
+            background-color: aqua;
+        } */
+/* 
+        div p{
+            color: brown;
+        } */
+
+/* 
+        div > p{
+            color: brown;
+        } */
+
+        /* group selectors */
+
+        /* span, article, [href]{
+            color: blueviolet;
+        } */
+
+
+    </style>
+</head>
+<body>
+
+    <div class="my-class">
+        <span>
+            <p>this is para1</p>
+        </span>
+        <p >this is para2</p>
+
+    </div>
+    <div>
+        <span>
+            <p>this is para1</p>
+        </span>
+        <p class="my-class">this is para2</p>
+
+    </div>
+    
+     <article>
+        <p class="red big">I am a para 1</p>
+        <p id="green">I am a para 2</p>
+    </article>
+
+    <div data-type="primary" >
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim corrupti exercitationem quas eum pariatur ipsum nesciunt dolorum vel explicabo obcaecati, odio optio! Mollitia, officiis fuga maxime iusto autem quo beatae!
+    </div>
+    <div data-type="secondary" >
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim corrupti exercitationem quas eum pariatur ipsum nesciunt dolorum vel explicabo obcaecati, odio optio! Mollitia, officiis fuga maxime iusto autem quo beatae!
+    </div>
+
+
+    <div>
+        <a href="my-image.jpg">image</a>
+        <a href="https:www.abcimage.com">dummy</a>
+        <a href="my-doc.pdf">example</a>
+
+
+    </div> 
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!-- 
+    
+    Cascade and specificity
+
+    cascade is an aldorithm for solving conflicts ehre multiple css rules
+    applied to an html element
+
+
+    postion and order of appearance > the order of which css rules appear
+
+
+    specificity => an algo that determines which css selector hs highest priority
+
+    score or points to each element
+
+    * selector has 0 points
+    type, class, pseudo class , attribute selectors 10 points each
+    id selector has 1000 points
+    !important rules has 10000 points
+
+
+    origin => the order of when css appears and from where, is it coming from browser, authored css? , browser extesion
+
+    from least specific to most specific
+
+    user agent based styles => default styles that browser appplies to html elements
+
+    local user styles  => styles based on OS, browser extensions, browser extension that allows u custom styling
+
+    authored css => css that we autor
+
+    authored with !important - !important added to our authored css
+
+    local user styles with !important
+
+    user agent styles !important
+
+
+
+
+
+
+
+
+
+
+    importance =>with  !important some css rules weigh more heavily 
+
+
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      button {
+        color: blue !important;
+      }
+      /*  * selector has 0 points
+    type selector 1 point
+     class, pseudo class , attribute selectors 10 points each
+    id selector has 1000 points
+    !important rules has 10000 points
+    origin => the order of when css appears and from where, is it coming from browser, authored css? , browser extesion
+    importance =>with  !important some css rules weigh more heavily 
+ */
+        /* 
+        0 - 4 - 1 
+        
+        
+        */
+    /* a.my-class.another-class[href]:hover {
+        color: lightblue;
+      }
+    a.my-class.another-class[href] {
+        color: tomato;
+      }
+      a.my-class.another-class {
+        color: green;
+      }
+
+      a.my-class {
+        color: brown;
+      }
+      a {
+        color: red;
+      }
+      * {
+        color: gray;
+      } */
+
+      /* a.my-class {
+        color: brown;
+      }
+      a.my-class.my-class {
+        color: green;
+      } */
+
+      /* 1 - 3 - 0 
+       1 => id
+       3 => class, pseudo class
+       0 => pseudo elements
+
+        from most specific to least specific
+      */
+    </style>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+  </head>
+  <body>
+    <a class="my-class another-class" href="#">A link</a>
+    <!-- <button style="color: green;">Send</button> -->
+  </body>
+</html>
