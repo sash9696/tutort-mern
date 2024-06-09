@@ -1,0 +1,48 @@
+<!-- px % vw -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            border: 2px solid black;
+            margin: 10px 0;
+        }
+        .five-hundred-px{
+            width: 500px;
+        }
+
+        .fifty-percent{
+            width: 50%;
+        }
+        .fifty-vw{
+            width: 50vw;
+        }
+        .parent{
+            margin: 40px;
+            width: 600px;
+            height: 500px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <h1>Units 2</h1>
+
+    <div class="box five-hundred-px">500px</div>
+    <div class="box fifty-percent">50 %</div>
+    <div class="box fifty-vw">50 vw</div>
+
+
+    <div class="parent">
+        <div  class="box five-hundred-px">500px</div>
+        <div class="box fifty-percent">50 %</div>
+        <div class="box fifty-vw">50 vw</div>
+    </div>
+
+</body>
+</html>

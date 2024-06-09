@@ -1,0 +1,48 @@
+<!-- em rem px -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html{
+            font-size: 14px;
+        }
+        .one-em{
+            font-size: 1em;
+        }
+        .one-rem{
+            font-size: 1rem;
+        }
+
+        .parent{
+            font-size: 20px;
+        }
+
+
+        .two-em{
+            font-size: 2em;
+        }
+        .two-rem{
+            font-size: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <h1>Units</h1>
+
+    <div>
+        <div>16 PX</div>
+        <div class="one-em">1 EM</div>
+        <div class="one-rem">1 REM</div>
+    </div>
+
+    <div class="parent">
+        <div class="px">20 PX</div>
+        <div class="two-em">2 EM</div>
+        <div class="two-rem">2 REM</div>
+    </div>
+</body>
+</html>

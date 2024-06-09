@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div.square{
+            position: relative;
+            width: 400px;
+            height: 400px;
+            background-color: tomato;
+            /* animation-name: change-color;
+            animation-duration: 5s;
+            animation-delay: 2s;
+            animation-iteration-count: infinite;
+            animation-direction: reverse;
+            animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1); */
+
+            animation: change-color 4s linear 2s infinite alternate;
+
+        }
+        /* div.square2{
+            position: relative;
+            width: 400px;
+            height: 400px;
+            background-color: tomato;
+
+
+        } */
+
+        /* @keyframes change-color {
+            from{
+                background-color: tomato;
+            }
+            to {
+                background-color: green;
+            }
+        } */
+        /* @keyframes change-color {
+            0%{background-color: tomato;}
+            25%{background-color: ghostwhite; width: 600px;}
+            50%{background-color: blue; width: 100px;}
+            100%{background-color: gray; height: 600px;}
+
+
+
+
+
+        } */
+        @keyframes change-color {
+            0%{background-color: tomato; left:0px; top: 0px;}
+            25%{background-color: ghostwhite;  left:200px; top: 0px;}
+            50%{background-color: blue;  left:200px; top: 200px;}
+            75%{background-color: blue;  left:0px; top: 200px;}
+            100%{background-color: gray; left:0px; top: 0px;}
+
+        }
+    </style>
+</head>
+<body>
+    <h1>Animation</h1>
+
+    <div class="square">
+
+    </div>
+    <!-- <div class="square2">
+
+    </div> -->
+</body>
+</html>
+
+
+<!-- 
+
+    bordersspacing
+    
+
+ -->
