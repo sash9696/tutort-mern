@@ -1,0 +1,22 @@
+html,body{
+  margin: 0px;
+  background-color: #1e2027;
+}
+.app{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-weight: bold;
+}
+
+h1{
+  color:white
+}
+
+img{
+  width: 80%;
+  max-width: 400px;
+  height: auto;
+  border-radius: 10px;
+  margin: 1rem;
+}
