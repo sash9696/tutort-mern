@@ -1,9 +1,40 @@
-import React from 'react'
+import React, { useState,useEffect } from 'react'
+import styled from 'styled-components';
 
-function Chat() {
+export default function Chat() {
+
+    const [contacts, setContacts] = useState([]);
+    const [currentChat, setCurrentChat] = useState(null);
+    const [currentUser, setCurrentUser] = useState(null);
+
+    
+    useEffect(() => {
+        if(!localStorage.getItem("chat-app-user")){
+            navigate('/login');
+
+        }else{
+            setCurrentUser(
+                JSON.parse(
+                    localStorage.getItem("chat-app-user")
+                )
+            )
+        }
+      }, [])
+
+
   return (
-    <div>Chat</div>
-  )
-}
+    <>
+        <Container>
+            <div className='container'>
+                {/* <Contacts/>
 
-export default Chat
+                <ChatContainer/> */}
+            </div>
+
+        </Container>
+    </>
+  )
+};
+
+const Container = styled.div`
+`;
