@@ -61,12 +61,26 @@ module.exports.setAvatar = async (req, res, next) => {
       { new: true }
     );
 
-    console.log('userData',userData)
+    console.log("userData", userData);
     return res.json({
       isSet: userData.isAvatarImageSet,
       image: userData.avatarImage,
     });
   } catch (error) {
     console.log(err);
+  }
+};
+
+module.exports.getAllUsers = async (req, res, next) => {
+  try {
+    const users = await User.find({ _id: { $ne: req.params.id } }).select([
+      "email",
+      "username",
+      "avatarImage",
+      "_id",
+    ]);
+    return res.json(users);
+  } catch (error) {
+    console.log("Error getting all users: ", error);
   }
 };
