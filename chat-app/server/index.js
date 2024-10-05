@@ -3,6 +3,7 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const userRoutes = require('./routes/userRoutes');
 const messageRoutes = require('./routes/messageRoutes');
+const socket = require('socket.io');
 
 const app = express();
 require('dotenv').config();
@@ -29,4 +30,53 @@ connectDB();
 
 const server = app.listen(process.env.PORT, () => {
     console.log(`Server started on Port: ${process.env.PORT}`);
+});
+
+const io = socket(server, {
+    cors:{
+        origin:'http://localhost:5173',
+        credentials:true
+    }
+});
+
+global.onlineUsers = new Map();
+
+io.on('connection', (socket) => {
+    global.chatSocket = socket;
+    socket.on("add-user", (userId) => {
+        onlineUsers.set(userId, socket.id);
+    });
+
+    socket.on("send-msg", (data) => {
+        const sendUserSocket = onlineUsers.get(data.to);
+        if(sendUserSocket){
+            socket.to(sendUserSocket).emit("msg-recieve", data.message)
+        }
+    });
+
 })
+
+//websockets
+//full-duplex communication
+//two way interactions
+
+//real time data
+//chat apps => instant messaging 
+//online gaming => real time interations b/w players and game servers
+//collaborative tools=> google docs => multiple users can edit docs simultaneously
+//financial trading=> live stock price, transactions
+
+
+//socket io
+
+//polling
+//keep making requests in a particular time interval
+
+//real time communication
+//fallback options like automatically chooses the best transport method
+//event based communication
+//automatic reconnection
+//community ecosystem
+//middleare support
+//cross-browser compatible
+

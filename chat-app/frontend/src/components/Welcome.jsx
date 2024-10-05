@@ -7,7 +7,7 @@ export default function Welcome() {
     setUserName(
        JSON.parse(
         localStorage.getItem("chat-app-user")
-      ).username
+      )?.username
     );
   }, []);
   return (
