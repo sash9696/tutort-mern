@@ -1,8 +1,12 @@
 import { watchlist } from "../data";
 import DoughnutChart from "./DoughnutChart";
-import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import { useState } from "react";
+import { Grow, Tooltip } from "@mui/material";
+import BarChartOutlinedIcon from "@mui/icons-material/BarChartOutlined";
+import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
+import { useWindowContext } from "../contexts/WindowProvider";
 const labels = watchlist.map((list) => list.name);
 
 function WatchList() {
@@ -62,22 +66,99 @@ export default WatchList;
 
 const WatchListItem = ({ stock }) => {
   const { isDown, name, percent } = stock;
+  const [showWatchlistActions, setShowWatchListActions] = useState(false);
+
+  const handleMouseEnter = (e) => {
+    setShowWatchListActions(true);
+  };
+  const handleMouseLeave = (e) => {
+    setShowWatchListActions(false);
+  };
 
   return (
-    <li>
+    <li onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
       <div className="item">
         <p className={isDown ? "down" : "up"}>{name}</p>
         <div className="itemInfo">
           <span className="percent">{percent}</span>
-          {
-            isDown ? (
-                <KeyboardArrowDownIcon className='down'/>
-            ) : (
-                <KeyboardArrowUpIcon className='up' />
-            )
-          }
+          {isDown ? (
+            <KeyboardArrowDownIcon className="down" />
+          ) : (
+            <KeyboardArrowUpIcon className="up" />
+          )}
         </div>
       </div>
+
+      {showWatchlistActions && <WatchListActions uid={stock.name} />}
     </li>
+  );
+};
+
+const WatchListActions = ({uid}) => {
+
+  const windowContext = useWindowContext();
+
+  console.log('windowContext',windowContext)
+
+  const handleBuyClick = () => {
+    //open a modal
+    windowContext.openBuyWindow(uid);
+
+  };
+
+  return (
+    <span className="actions">
+      <span style={{ display: "flex", alignItems: "center" }}>
+        <Tooltip
+          title="Buy (B)"
+          placement="top"
+          arrow
+          slots={{
+            transition: Grow,
+          }}
+        >
+          <button className="buy" onClick={handleBuyClick}>
+            Buy
+          </button>
+        </Tooltip>
+
+        <Tooltip
+          title="Sell (S)"
+          placement="top"
+          arrow
+          slots={{
+            transition: Grow,
+          }}
+        >
+          <button className="sell">Sell</button>
+        </Tooltip>
+
+        <Tooltip
+          title="Analytics (A)"
+          placement="top"
+          arrow
+          slots={{
+            transition: Grow,
+          }}
+        >
+          <button className="action">
+            <BarChartOutlinedIcon className="icon" />
+          </button>
+        </Tooltip>
+
+        <Tooltip
+          title="More"
+          placement="top"
+          arrow
+          slots={{
+            transition: Grow,
+          }}
+        >
+          <button className="action">
+            <MoreHorizIcon className="icon" />
+          </button>
+        </Tooltip>
+      </span>
+    </span>
   );
 };
