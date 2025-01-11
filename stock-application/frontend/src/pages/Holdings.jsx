@@ -8,8 +8,8 @@ const Holdings = () => {
   const [allHoldings, setAllHoldings] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:3002/allHoldings").then((res) => {
-      // console.log(res.data);
+    axios.get("http://localhost:3001/api/holdings").then((res) => {
+      console.log('res',{res});
       setAllHoldings(res.data);
     });
   }, []);
@@ -68,7 +68,7 @@ const Holdings = () => {
             const dayClass = stock.isLoss ? "loss" : "profit";
 
             return (
-              <tr key={index}>
+              <tr key={stock._id}>
                 <td>{stock.name}</td>
                 <td>{stock.qty}</td>
                 <td>{stock.avg.toFixed(2)}</td>
